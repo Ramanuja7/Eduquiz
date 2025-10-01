@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EduQuiz - Educational Quiz Platform</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Navigation -->
+        <nav class="navbar" id="navbar">
+            <div class="nav-brand">
+                <h1><a href="home.html" style="text-decoration:none; color:inherit;">🎓 EduQuiz</a></h1>
+            </div>
+            <div class="nav-menu" id="nav-menu">
+                
+                <div id="nav-settings" class="nav-settings hidden">
+                    <div class="nav-control">
+                        <label for="nav-class">Class:</label>
+                        <select id="nav-class" title="Select Class">
+                            <option value="">Class</option>
+                            <option value="1">Class 1</option>
+                            <option value="2">Class 2</option>
+                            <option value="3">Class 3</option>
+                            <option value="4">Class 4</option>
+                            <option value="5">Class 5</option>
+                            <option value="6">Class 6</option>
+                            <option value="7">Class 7</option>
+                            <option value="8">Class 8</option>
+                            <option value="9">Class 9</option>
+                            <option value="10">Class 10</option>
+                            <option value="11">Class 11</option>
+                            <option value="12">Class 12 / 12+</option>
+                        </select>
+                    </div>
+                    <div class="nav-control">
+                        <label for="nav-course" class="nav-course-label hidden">Course:</label>
+                        <select id="nav-course" class="hidden" title="Select Course">
+                            <option value="">Course</option>
+                            <option value="mpc">MPC (Maths, Physics, Chemistry)</option>
+                            <option value="bipc">BIPC (Biology, Botany, Zoology)</option>
+                            <option value="hec">HEC (History, Economics, Civics)</option>
+                            <option value="btech">BTech (Engineering)</option>
+                            <option value="mba">MBA (Management)</option>
+                            <option value="higher">Higher Studies</option>
+                        </select>
+                    </div>
+                </div>
+                <i id="nav-user-icon" class="fas fa-user-circle user-icon hidden" aria-hidden="true"></i>
+                <span class="user-info" id="user-info"></span>
+                <button class="btn btn-outline" id="logout-btn">Logout</button>
+            </div>
+        </nav>
+
+        <!-- Home Page moved to home.html -->
+
+        <!-- Login/Register Page -->
+        <div id="auth-page" class="auth-page">
+            <div class="auth-container">
+                <div class="auth-header">
+                    <h1>Welcome to EduQuiz</h1>
+                    <p>Your personalized learning journey starts here</p>
+                </div>
+                
+                <div class="auth-tabs">
+                    <button class="tab-btn active" data-tab="login">Login</button>
+                    <button class="tab-btn" data-tab="register">Register</button>
+                </div>
+
+                <!-- Login Form -->
+                <div id="login-form" class="auth-form active">
+                    <form id="loginForm">
+                        <div class="form-group">
+                            <label for="login-email">Email</label>
+                            <input type="email" id="login-email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="login-password">Password</label>
+                            <input type="password" id="login-password" required>
+                        </div><br>
+                        <button type="submit" class="btn btn-primary">Login</button>
+                    </form>
+                </div>
+
+                <!-- Register Form -->
+                <div id="register-form" class="auth-form">
+                    <form id="registerForm">
+                        <div class="form-group">
+                            <label for="register-name">Full Name</label>
+                            <input type="text" id="register-name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="register-email">Email</label>
+                            <input type="email" id="register-email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="register-password">Password</label>
+                            <input type="password" id="register-password" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="register-confirm-password">Confirm Password</label>
+                            <input type="password" id="register-confirm-password" required>
+                        </div><br>
+                        <button type="submit" class="btn btn-primary">Register</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- Student Information Page -->
+        <div id="student-info-page" class="student-info-page hidden">
+            <div class="info-container">
+                <h2>Tell us about yourself</h2>
+                <form id="studentInfoForm">
+                    <div class="form-group">
+                        <label for="age">Age</label>
+                        <input type="number" id="age" min="5" max="18" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="class">Class/Grade</label>
+                        <select id="class" required>
+                            <option value="">Select your class</option>
+                            <option value="1">Class 1</option>
+                            <option value="2">Class 2</option>
+                            <option value="3">Class 3</option>
+                            <option value="4">Class 4</option>
+                            <option value="5">Class 5</option>
+                            <option value="6">Class 6</option>
+                            <option value="7">Class 7</option>
+                            <option value="8">Class 8</option>
+                            <option value="9">Class 9</option>
+                            <option value="10">Class 10</option>
+                            <option value="11">Class 11</option>
+                            <option value="12">Class 12 / 12+</option>
+                        </select>
+                    </div>
+                    <div id="course-selection" class="form-group hidden">
+                        <label for="course">Course</label>
+                        <select id="course">
+                            <option value="">Select your course</option>
+                            <option value="mpc">MPC (Maths, Physics, Chemistry)</option>
+                            <option value="bipc">BIPC (Biology, Botany, Zoology)</option>
+                            <option value="hec">HEC (History, Economics, Civics)</option>
+                            <option value="btech">BTech (Engineering)</option>
+                            <option value="mba">MBA (Management)</option>
+                            <option value="higher">Higher Studies</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Continue</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Dashboard Page -->
+        <div id="dashboard-page" class="dashboard-page hidden">
+            <div class="dashboard-header">
+                <h2>Welcome back, <span id="dashboard-username"></span>!</h2>
+                <p>Choose a subject to start your quiz</p>
+            </div>
+
+            <!-- Class 1-10 Subjects -->
+            <div id="class-subjects" class="subjects-grid">
+                <div class="subject-card" data-subject="maths">
+                    <i class="fas fa-calculator"></i>
+                    <h3>Mathematics</h3>
+                    <p>Test your math skills</p>
+                </div>
+                <div class="subject-card" data-subject="science">
+                    <i class="fas fa-flask"></i>
+                    <h3>Science</h3>
+                    <p>Explore scientific concepts</p>
+                </div>
+                <div class="subject-card" data-subject="social">
+                    <i class="fas fa-globe"></i>
+                    <h3>Social Studies</h3>
+                    <p>History, Geography & Civics</p>
+                </div>
+                <div class="subject-card" data-subject="english">
+                    <i class="fas fa-book"></i>
+                    <h3>English</h3>
+                    <p>Language and Literature</p>
+                </div>
+            </div>
+
+            <!-- Class 11-12 Courses -->
+            <div id="course-subjects" class="subjects-grid hidden">
+                <!-- MPC Subjects -->
+                <div id="mpc-subjects" class="course-subjects hidden">
+                    <div class="subject-card" data-subject="mathematics">
+                        <i class="fas fa-calculator"></i>
+                        <h3>Mathematics</h3>
+                        <p>Advanced Mathematics</p>
+                    </div>
+                    <div class="subject-card" data-subject="physics">
+                        <i class="fas fa-atom"></i>
+                        <h3>Physics</h3>
+                        <p>Physical Sciences</p>
+                    </div>
+                    <div class="subject-card" data-subject="chemistry">
+                        <i class="fas fa-vial"></i>
+                        <h3>Chemistry</h3>
+                        <p>Chemical Sciences</p>
+                    </div>
+                </div>
+
+                <!-- BIPC Subjects -->
+                <div id="bipc-subjects" class="course-subjects hidden">
+                    <div class="subject-card" data-subject="biology">
+                        <i class="fas fa-dna"></i>
+                        <h3>Biology</h3>
+                        <p>Life Sciences</p>
+                    </div>
+                    <div class="subject-card" data-subject="botany">
+                        <i class="fas fa-seedling"></i>
+                        <h3>Botany</h3>
+                        <p>Plant Sciences</p>
+                    </div>
+                    <div class="subject-card" data-subject="zoology">
+                        <i class="fas fa-paw"></i>
+                        <h3>Zoology</h3>
+                        <p>Animal Sciences</p>
+                    </div>
+                </div>
+
+                <!-- HEC Subjects -->
+                <div id="hec-subjects" class="course-subjects hidden">
+                    <div class="subject-card" data-subject="history">
+                        <i class="fas fa-landmark"></i>
+                        <h3>History</h3>
+                        <p>Historical Studies</p>
+                    </div>
+                    <div class="subject-card" data-subject="economics">
+                        <i class="fas fa-chart-line"></i>
+                        <h3>Economics</h3>
+                        <p>Economic Principles</p>
+                    </div>
+                    <div class="subject-card" data-subject="civics">
+                        <i class="fas fa-balance-scale"></i>
+                        <h3>Civics</h3>
+                        <p>Political Science</p>
+                    </div>
+                </div>
+
+                <!-- BTech Subjects -->
+                <div id="btech-subjects" class="course-subjects hidden">
+                    <div class="subject-card" data-subject="programming">
+                        <i class="fas fa-code"></i>
+                        <h3>Programming</h3>
+                        <p>Core CS concepts</p>
+                    </div>
+                    <div class="subject-card" data-subject="data-structures">
+                        <i class="fas fa-database"></i>
+                        <h3>Data Structures</h3>
+                        <p>Algorithms and structures</p>
+                    </div>
+                    <div class="subject-card" data-subject="mathematics">
+                        <i class="fas fa-square-root-alt"></i>
+                        <h3>Mathematics</h3>
+                        <p>Engineering maths</p>
+                    </div>
+                    <div class="subject-card" data-subject="science">
+                        <i class="fas fa-flask"></i>
+                        <h3>Science & Nature</h3>
+                        <p>Applied sciences</p>
+                    </div>
+                </div>
+
+                <!-- MBA Subjects -->
+                <div id="mba-subjects" class="course-subjects hidden">
+                    <div class="subject-card" data-subject="strategy">
+                        <i class="fas fa-chess"></i>
+                        <h3>Business Strategy</h3>
+                        <p>Decision making</p>
+                    </div>
+                    <div class="subject-card" data-subject="economics">
+                        <i class="fas fa-chart-line"></i>
+                        <h3>Economics</h3>
+                        <p>Markets and macro</p>
+                    </div>
+                    <div class="subject-card" data-subject="statistics">
+                        <i class="fas fa-percentage"></i>
+                        <h3>Statistics</h3>
+                        <p>Quantitative methods</p>
+                    </div>
+                    <div class="subject-card" data-subject="general-knowledge">
+                        <i class="fas fa-globe"></i>
+                        <h3>General Knowledge</h3>
+                        <p>Current affairs</p>
+                    </div>
+                </div>
+
+                <!-- Higher Studies Subjects -->
+                <div id="higher-subjects" class="course-subjects hidden">
+                    <div class="subject-card" data-subject="general-knowledge">
+                        <i class="fas fa-globe"></i>
+                        <h3>General Knowledge</h3>
+                        <p>Comprehensive GK</p>
+                    </div>
+                    <div class="subject-card" data-subject="history">
+                        <i class="fas fa-landmark"></i>
+                        <h3>History</h3>
+                        <p>World and India</p>
+                    </div>
+                    <div class="subject-card" data-subject="geography">
+                        <i class="fas fa-map"></i>
+                        <h3>Geography</h3>
+                        <p>Physical and human</p>
+                    </div>
+                    <div class="subject-card" data-subject="politics">
+                        <i class="fas fa-balance-scale"></i>
+                        <h3>Politics</h3>
+                        <p>Governance and policy</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quiz History -->
+            <div class="quiz-history">
+                <h3>Your Quiz History</h3>
+                <div id="quiz-history-list" class="history-list">
+                    <!-- Quiz history will be populated here -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Header -->
+        <header class="header hidden" id="main-header">
+            <h1>🧠 Quiz Master</h1>
+            <p>Test your knowledge with interactive quizzes</p>
+        </header>
+
+        <!-- Quiz Configuration -->
+        <div id="quiz-config" class="quiz-config hidden">
+            <div class="quiz-header">
+                <h2 id="quiz-subject-title">Quiz Settings</h2>
+                <p id="quiz-subject-description">Configure your quiz preferences</p>
+            </div>
+            <div class="config-options">
+                <div class="config-group">
+                    <label for="question-count">Number of Questions:</label>
+                    <select id="question-count">
+                        <option value="5">5 Questions</option>
+                        <option value="10" selected>10 Questions</option>
+                        <option value="15">15 Questions</option>
+                        <option value="20">20 Questions</option>
+                    </select>
+                </div>
+                <div class="config-group">
+                    <label for="time-limit">Time per Question (seconds):</label>
+                    <select id="time-limit">
+                        <option value="15">15 seconds</option>
+                        <option value="30" selected>30 seconds</option>
+                        <option value="45">45 seconds</option>
+                        <option value="60">60 seconds</option>
+                    </select>
+                </div>
+                <div class="config-group">
+                    <label for="difficulty">Difficulty:</label>
+                    <select id="difficulty">
+                        <option value="easy">Easy</option>
+                        <option value="medium" selected>Medium</option>
+                        <option value="hard">Hard</option>
+                    </select>
+                </div>
+                <div class="config-group">
+                    <label for="category">Category:</label>
+                    <select id="category">
+                        <option value="9">General Knowledge</option>
+                        <option value="17">Science & Nature</option>
+                        <option value="18">Science: Computers</option>
+                        <option value="19">Science: Mathematics</option>
+                        <option value="21">Sports</option>
+                        <option value="22">Geography</option>
+                        <option value="23">History</option>
+                        <option value="27">Animals</option>
+                    </select>
+                </div>
+            </div>
+            <div class="quiz-actions">
+                <button id="back-to-dashboard" class="btn btn-secondary">Back to Dashboard</button>
+                <button id="start-quiz" class="btn btn-primary">Start Quiz</button>
+                <button id="new-quiz" class="btn btn-secondary">New Quiz</button>
+            </div>
+        </div>
+
+        <!-- Quiz Interface -->
+        <div id="quiz-interface" class="quiz-interface hidden">
+            <!-- Progress Bar -->
+            <div class="progress-container">
+                <div class="progress-bar">
+                    <div id="progress-fill" class="progress-fill"></div>
+                </div>
+                <div class="progress-text">
+                    <span id="current-question">1</span> / <span id="total-questions">10</span>
+                </div>
+            </div>
+
+            <!-- Timer -->
+            <div class="timer-container">
+                <div id="timer" class="timer">30</div>
+                <div class="timer-label">seconds</div>
+            </div>
+
+            <!-- Question -->
+            <div class="question-container">
+                <h2 id="question-text">Loading question...</h2>
+            </div>
+
+            <!-- Options -->
+            <div id="options-container" class="options-container">
+                <!-- Options will be dynamically generated -->
+            </div>
+
+            <!-- Navigation -->
+            <div class="quiz-navigation">
+                <button id="next-question" class="btn btn-secondary hidden">Next Question</button>
+                <button id="submit-quiz" class="btn btn-primary hidden">Submit Quiz</button>
+            </div>
+        </div>
+
+        <!-- Results -->
+        <div id="quiz-results" class="quiz-results hidden">
+            <div class="results-header">
+                <h2>Quiz Complete! 🎉</h2>
+                <div class="score-display">
+                    <div class="score-circle">
+                        <span id="final-score">0</span>
+                        <span class="score-total">/ <span id="total-score">10</span></span>
+                    </div>
+                    <div class="score-percentage">
+                        <span id="score-percentage">0%</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="results-details">
+                <div class="result-stat">
+                    <span class="stat-label">Correct Answers:</span>
+                    <span id="correct-answers" class="stat-value">0</span>
+                </div>
+                <div class="result-stat">
+                    <span class="stat-label">Incorrect Answers:</span>
+                    <span id="incorrect-answers" class="stat-value">0</span>
+                </div>
+                <div class="result-stat">
+                    <span class="stat-label">Time Taken:</span>
+                    <span id="time-taken" class="stat-value">0:00</span>
+                </div>
+                <div class="result-stat">
+                    <span class="stat-label">Date:</span>
+                    <span id="quiz-date" class="stat-value">Today</span>
+                </div>
+            </div><br><br>
+
+            <div class="results-actions">
+                <button id="retake-quiz" class="btn btn-primary">Retake Quiz</button><br>
+                <button id="back-to-dashboard" class="btn btn-secondary">Back to Dashboard</button>
+            </div><br><hr>
+
+            <!-- Review Section -->
+            <div id="review-section" class="review-section">
+                <h3>Review Your Answers</h3>
+                <div id="review-questions" class="review-questions">
+                    <!-- Review questions will be dynamically generated -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Loading Spinner -->
+        <div id="loading" class="loading hidden">
+            <div class="spinner"></div>
+            <p>Loading questions...</p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
